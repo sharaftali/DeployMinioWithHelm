@@ -1,0 +1,21 @@
+ingress:
+  enabled: true
+  hostname: dev.minio.aipages.cloudai.network
+  pathType: Prefix
+  annotations: 
+    networking.gke.io/managed-certificates: managed-cert
+    kubernetes.io/ingress.global-static-ip-name: "np-mcit-minio-static-ip"
+apiIngress:
+  enabled: true
+  hostname: api.minio.newspaper.cloudai.network
+  pathType: Prefix
+  annotations: 
+    networking.gke.io/managed-certificates: managed-cert
+    kubernetes.io/ingress.global-static-ip-name: "api-np-minio-static-ip"
+
+# livenessProbe:
+#   httpGet:
+#     path: /minio/health/live
+#     port: 9000
+#   initialDelaySeconds: 10
+#   periodSeconds: 20
